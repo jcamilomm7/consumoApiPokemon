@@ -6,8 +6,10 @@ import { HttpClient } from '@angular/common/http';
 })
 export class PokemonService {
 
+  private contador:number = 100;
+
   private url: string = "https://pokeapi.co/api/v2/pokemon";
-  private url2: string = "https://pokeapi.co/api/v2/pokemon/?limit=30&offset=0";
+  private url2: string = `https://pokeapi.co/api/v2/pokemon/?limit=${this.contador}&offset=0`;
 
   constructor(private http: HttpClient) {}
 
@@ -20,6 +22,19 @@ export class PokemonService {
   }
 
   getPersonajes(url: string) {
+    return this.http.get(`${url}`)
+  }
+
+  setContador(){
+     this.contador = this.contador + 2;
+     console.log(this.contador)
+  }
+
+  getEfectos(url: string) {
+    return this.http.get(`${url}`)
+  }
+
+  getTipo(url: string){
     return this.http.get(`${url}`)
   }
 
