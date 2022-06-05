@@ -1,0 +1,34 @@
+<p>Buscar personaje por nombre</p>
+<input type="text" [(ngModel)] = "name">
+<button (click)="search()">Buscar por Id o Nombre</button>
+
+<img src="{{urlImage}}" alt="Foto pokemon">
+
+
+
+<p>Listar los personajes</p>
+<button (click)="buscarPersonajes()">Listar Array personajes</button>
+
+<table border="1">
+    <tr>
+      <th>Id</th>
+      <th>Nombre</th>
+      <th>Image</th>
+      <th>Image2</th>
+    </tr>
+
+
+    <tr *ngFor="let caracteristica of caracteristicas" >
+      <td>{{caracteristica.id}}</td>
+      <td >{{caracteristica.forms [0].name}}</td>
+      <td><img src="{{caracteristica.sprites.front_default}}" alt="Foto pokemon"></td>
+      <td><img src="{{caracteristica.sprites.front_shiny}}" alt="Foto pokemon"></td>
+
+    </tr>
+
+
+</table>
+
+
+
+
